@@ -1,6 +1,6 @@
 <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
     <div class="app-brand demo">
-        <a href="{{ route('dashboard') }}" class="app-brand-link">
+        <a href="{{ route('dashboard.view') }}" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <svg
                     width="25"
@@ -56,7 +56,7 @@
                   </g>
                 </svg>
               </span>
-            <span class="app-brand-text demo menu-text fw-bolder ms-2">Sismanda</span>
+            <span class="app-brand-text demo menu-text fw-bolder ms-2">SPK-Prestasi</span>
         </a>
 
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
@@ -68,10 +68,16 @@
 
     <ul class="menu-inner py-1">
         <!-- Dashboard -->
-        <li class="menu-item active">
-            <a href="{{ route('dashboard') }}" class="menu-link">
+        <li class="menu-item @if(Route::is('dashboard.view')) active @endif">
+            <a href="{{ route('dashboard.view') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Analytics">Dashboard</div>
+            </a>
+        </li>
+        <li class="menu-item @if(Route::is('student.view') || Route::is('student.viewAdd')||Route::is('student.viewEdit')) active @endif">
+            <a href="{{ route('student.view') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-user-circle"></i>
+                <div data-i18n="Analytics">Siswa</div>
             </a>
         </li>
     </ul>
