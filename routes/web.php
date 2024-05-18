@@ -34,8 +34,17 @@ Route::controller(StudentController::class)->name('student.')->group(function ()
     Route::delete('/student/{student}', 'delete')->name('delete');
 });
 Route::controller(GroupController::class)->name('group.')->group(function () {
+    // Menampilkan Kelola Kelompok
     Route::get('/group', 'view')->name('view');
+    // CRUD Kelas
     Route::get('/group/add-grade', 'viewAddGrade')->name('viewAddGrade');
     Route::post('/group/addG', 'addG')->name('addG');
     Route::get('/group/edit-grade/{grade}', 'viewEditGrade')->name('viewEditGrade');
+    Route::patch('/group/edit-grade/{grade}', 'editG')->name('editG');
+    Route::delete('/group/{grade}', 'deleteG')->name('deleteG');
+    // CRUD Angkatan
+    Route::get('/group/add-year', 'viewAddYear')->name('viewAddYear');
+    Route::post('/group/addY', 'addY')->name('addY');
+    Route::get('/group/edit-year/{year}', 'viewEditYear')->name('viewEditYear');
+    Route::delete('/group/{year}', 'deleteY')->name('deleteY');
 });
