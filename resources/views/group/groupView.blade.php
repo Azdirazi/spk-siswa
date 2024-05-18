@@ -81,13 +81,13 @@
                             @foreach ($yearData as $year)
                                 <tr>
                                     <td class="text-center">{{ $i++ }}</td>
-                                    <td class="text-center">{{ $year->kelas }}</td>
+                                    <td class="text-center">{{ $year->angkatan }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
-                                            <a href="{{ route('year.viewEditYear', $year->id) }}" class="btn btn-warning"><i
-                                                    class='bx bxs-message-edit'></i> Edit</a> ||
+                                            <a href="{{ route('group.viewEditYear', $year->id) }}"
+                                                class="btn btn-warning"><i class='bx bxs-message-edit'></i> Edit</a> ||
                                             <form onsubmit="return confirm('Data pengguna akan dihapus ?')"
-                                                action=" {{ route('year.delete', $year->id) }}" method="POST">
+                                                action=" {{ route('group.deleteY', $year->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type=" submit" class="btn btn-danger"><i class='bx bxs-trash'></i>

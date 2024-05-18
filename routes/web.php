@@ -46,5 +46,6 @@ Route::controller(GroupController::class)->name('group.')->group(function () {
     Route::get('/group/add-year', 'viewAddYear')->name('viewAddYear');
     Route::post('/group/addY', 'addY')->name('addY');
     Route::get('/group/edit-year/{year}', 'viewEditYear')->name('viewEditYear');
+    Route::patch('/group/edit-year/{year}', 'editY')->name('editY');
     Route::delete('/group/{year}', 'deleteY')->name('deleteY');
 });
