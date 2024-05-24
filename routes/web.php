@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GroupController;
 use App\Http\Controllers\StudentController;
@@ -47,5 +48,14 @@ Route::controller(GroupController::class)->name('group.')->group(function () {
     Route::post('/group/addY', 'addY')->name('addY');
     Route::get('/group/edit-year/{year}', 'viewEditYear')->name('viewEditYear');
     Route::patch('/group/edit-year/{year}', 'editY')->name('editY');
-    Route::delete('/group/{year}', 'deleteY')->name('deleteY');
+    Route::delete('/group/{year}', 'deletey')->name('deletey');
+});
+// Controller Kriteria
+Route::controller(CriteriaController::class)->name('criteria.')->group(function () {
+    Route::get('/criteria', 'view')->name('view');
+    Route::get('/criteria/add-criteria', 'viewAdd')->name('viewAdd');
+    Route::post('/criteria/add', 'add')->name('add');
+    Route::get('/criteria/edit-criteria/{criteria}', 'viewEdit')->name('viewEdit');
+    Route::patch('/criteria/edit-criteria/{criteria}', 'edit')->name('edit');
+    Route::delete('/criteria/{criteria}', 'delete')->name('delete');
 });

@@ -87,7 +87,7 @@
                                             <a href="{{ route('group.viewEditYear', $year->id) }}"
                                                 class="btn btn-warning"><i class='bx bxs-message-edit'></i> Edit</a> ||
                                             <form onsubmit="return confirm('Data pengguna akan dihapus ?')"
-                                                action=" {{ route('group.deleteY', $year->id) }}" method="POST">
+                                                action=" {{ route('group.deletey', $year->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type=" submit" class="btn btn-danger"><i class='bx bxs-trash'></i>

@@ -61,9 +61,9 @@ class GroupController extends Controller
         $year->update($data);
         return redirect(route('group.view'))->with('success', 'Data kelas berhasil diubah');
     }
-    public function deleteY(Year $year)
+    public function deletey(Year $year)
     {
         $year->delete();
-        return redirect(route('group.view'))->with('success', 'Data kelas berhasil dihapus');
+        return redirect(route('group.view'))->with('success', 'Data Angkatan berhasil dihapus');
     }
 }

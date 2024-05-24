@@ -75,5 +75,11 @@
                 <div data-i18n="Analytics">Kelola Kelas dan Angkatan</div>
             </a>
         </li>
+        <li class="menu-item @if (Route::is('criteria.view') || Route::is('criteria.viewAdd') || Route::is('criteria.viewEdit')) active @endif">
+            <a href="{{ route('criteria.view') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-file"></i>
+                <div data-i18n="Analytics">Kriteria</div>
+            </a>
+        </li>
     </ul>
 </aside>
