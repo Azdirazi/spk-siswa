@@ -13,6 +13,16 @@ return new class extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('grade_id')
+                ->references('id')
+                ->on('grades')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            $table->foreignId('year_id')
+                ->references('id')
+                ->on('years')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             $table->string('nisn');
             $table->string('name');
             $table->string('jk');

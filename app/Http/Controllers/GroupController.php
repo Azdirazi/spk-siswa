@@ -63,6 +63,7 @@ class GroupController extends Controller
     }
     public function deletey(Year $year)
     {
+
         $year->delete();
         return redirect(route('group.view'))->with('success', 'Data Angkatan berhasil dihapus');
     }

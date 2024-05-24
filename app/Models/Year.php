@@ -9,4 +9,12 @@ class Year extends Model
 {
     use HasFactory;
     protected $fillable = ['angkatan'];
+    public function student()
+    {
+        return $this->hasMany(Student::class);
+    }
+    public function grade()
+    {
+        return $this->hasMany(Grade::class);
+    }
 }

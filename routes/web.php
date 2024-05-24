@@ -49,7 +49,7 @@ Route::controller(GroupController::class)->name('group.')->group(function () {
     Route::post('/group/addY', 'addY')->name('addY');
     Route::get('/group/edit-year/{year}', 'viewEditYear')->name('viewEditYear');
     Route::patch('/group/edit-year/{year}', 'editY')->name('editY');
-    Route::delete('/group/{year}', 'deletey')->name('deletey');
+    Route::delete('/group/delete/{year}', 'deletey')->name('deletey');
 });
 // Controller Kriteria
 Route::controller(CriteriaController::class)->name('criteria.')->group(function () {
