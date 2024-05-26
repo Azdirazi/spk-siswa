@@ -19,6 +19,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+
 Route::controller(DashboardController::class)->name('dashboard.')->group(function () {
     Route::get('/', 'view')->name('view');
     Route::get('/user/add-user', 'viewAdd')->name('viewAdd');
@@ -66,4 +68,7 @@ Route::controller(SubCriteriaController::class)->name('subcriteria.')->group(fun
     Route::post('/subcriteria', 'add')->name('add');
     Route::patch('/subcriteria/edit/{subCriteria}', 'subCriteriaEdit')->name('edit');
     Route::delete('/subcriteria/delete/{subCriteria}', 'subCriteriaDelete')->name('delete');
+});
+Route::get('/login', function () {
+    return view('login');
 });

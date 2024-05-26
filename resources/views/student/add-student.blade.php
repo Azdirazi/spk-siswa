@@ -13,7 +13,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-12 mb-2">
                         <label class="form-label">NISN <sup class="text-danger">*</sup></label>
-                        <input type="text" class="form-control desimal-input" name="nisn"required>
+                        <input type="text" class="form-control desimal-input" name="code"required>
                     </div>
                     <div class="col-lg-12 col-12 mb-2">
                         <label class="form-label">Nama <sup class="text-danger">*</sup></label>
@@ -21,20 +21,29 @@
                     </div>
                     <div class="col-lg-12 col-12 mb-2">
                         <label class="form-label">Jenis Kelamin <sup class="text-danger">*</sup></label>
-                        <input type="text" class="form-control desimal-input" name="jk"required>
+                        <select name="gender" class="form-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="Laki-Laki">Laki-Laki</option>
+                            <option value="Perempuan">Perempuan</option>
+                        </select>
                     </div>
+
                     <div class="col-lg-12 col-12 mb-2">
                         <label class="form-label">Kelas <sup class="text-danger">*</sup></label>
                         <select name="grade_id" class="form-select" id="inputGroupSelect01">
                             <option selected>Choose...</option>
-                            <option value="1">Admin</option>
-                            <option value="2">Guru</option>
+                            @foreach ($gradeData as $grade)
+                                <option value="{{ $grade->id }}">{{ $grade->grade }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="col-lg-12 col-12 mb-2">
                         <label class="form-label">Angkatan <sup class="text-danger">*</sup></label>
                         <select name="year_id" class="form-select" id="inputGroupSelect01">
                             <option selected>Choose...</option>
+                            @foreach ($yearData as $year)
+                                <option value="{{ $year->id }}">{{ $year->year }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <input type="hidden" name="student-submit">

@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-12 mb-2">
                         <label class="form-label">Kelas<sup class="text-danger">*</sup></label>
-                        <input type="text" class="form-control desimal-input" value="{{ $grade->kelas }}"name="kelas"
+                        <input type="text" class="form-control desimal-input" value="{{ $grade->grade }}"name="grade"
                             required>
                     </div>
                     <input type="hidden" name="grade-submit">

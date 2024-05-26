@@ -31,7 +31,7 @@
                             @foreach ($gradeData as $grade)
                                 <tr>
                                     <td class="text-center">{{ $i++ }}</td>
-                                    <td class="text-center">{{ $grade->kelas }}</td>
+                                    <td class="text-center">{{ $grade->grade }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <a href="{{ route('group.viewEditGrade', $grade->id) }}"
@@ -81,7 +81,7 @@
                             @foreach ($yearData as $year)
                                 <tr>
                                     <td class="text-center">{{ $i++ }}</td>
-                                    <td class="text-center">{{ $year->angkatan }}</td>
+                                    <td class="text-center">{{ $year->year }}</td>
                                     <td>
                                         <div class="d-flex justify-content-center">
                                             <a href="{{ route('group.viewEditYear', $year->id) }}"

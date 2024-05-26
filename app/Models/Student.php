@@ -9,20 +9,20 @@ class Student extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nisn',
+        'code',
         'name',
-        'jk',
-        'grades_id',
-        'years_id'
+        'gender',
+        'grade_id',
+        'year_id'
     ];
 
     public function grade()
     {
-        return $this->hasOne(Grade::class, 'grades_id', 'id');
+        return $this->hasOne(Grade::class, 'id', 'grade_id');
     }
 
     public function year()
     {
-        return $this->hasOne(Grade::class, 'years_id', 'id');
+        return $this->hasOne(Year::class, 'id', 'year_id');
     }
 }

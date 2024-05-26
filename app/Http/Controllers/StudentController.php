@@ -12,7 +12,7 @@ class StudentController extends Controller
     public function view(Student $student)
     {
 
-        $studentData = Student::with('grade.year')->get();
+        $studentData = Student::with(['grade', 'year'])->get();
         return view('student.student', compact('studentData'));
     }
 
@@ -22,10 +22,12 @@ class StudentController extends Controller
         $yearData = $year->get();
         return view('student.add-student', compact('gradeData', 'yearData'));
     }
-    public function add(Student $student, Request $studentRequest)
+    public function add(Student $student, Request $request)
     {
-        $data = $studentRequest->all();
+
+        $data = $request->all();
         $student->create($data);
+
         return redirect(route('student.view'))->with('success', 'Data user berhasil ditambahkan');
     }
     public function viewEdit(Student $student)

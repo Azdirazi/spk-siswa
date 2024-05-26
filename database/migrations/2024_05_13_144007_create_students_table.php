@@ -23,9 +23,9 @@ return new class extends Migration
                 ->on('years')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->string('nisn');
+            $table->string('code');
             $table->string('name');
-            $table->string('jk');
+            $table->string('gender');
             $table->timestamps();
         });
     }

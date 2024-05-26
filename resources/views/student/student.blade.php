@@ -32,9 +32,11 @@
                         @php($i = 1)
                         @foreach ($studentData as $student)
                             <tr>
-                                <td class="text-center">{{ $student->nisn }}</td>
+                                <td class="text-center">{{ $student->code }}</td>
                                 <td class="text-center">{{ $student->name }}</td>
-                                <td class="text-center">{{ $student->jk }}</td>
+                                <td class="text-center">{{ $student->gender }}</td>
+                                <td class="text-center">{{ $student->grade->grade }}</td>
+                                <td class="text-center">{{ $student->year->year }}</td>
                                 <td>
                                     <div class="d-flex justify-content-center">
                                         <a href="{{ route('student.viewEdit', $student->id) }}" class="btn btn-warning"><i
