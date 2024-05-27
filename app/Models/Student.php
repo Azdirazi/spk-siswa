@@ -25,4 +25,9 @@ class Student extends Model
     {
         return $this->hasOne(Year::class, 'id', 'year_id');
     }
+
+    public function rating()
+    {
+        return $this->hasMany(Rating::class);
+    }
 }

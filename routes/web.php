@@ -3,6 +3,7 @@
 use App\Http\Controllers\CriteriaController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\GroupController;
+use App\Http\Controllers\RatingController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubCriteriaController;
 use Illuminate\Routing\Route as RoutingRoute;
@@ -69,6 +70,14 @@ Route::controller(SubCriteriaController::class)->name('subcriteria.')->group(fun
     Route::patch('/subcriteria/edit/{subCriteria}', 'subCriteriaEdit')->name('edit');
     Route::delete('/subcriteria/delete/{subCriteria}', 'subCriteriaDelete')->name('delete');
 });
+
+Route::controller(RatingController::class)->name('rating.')->group(function () {
+    Route::get('/rating', 'view')->name('view');
+    Route::post('/rating', 'add')->name('add');
+    Route::patch('/rating/edit/{subCriteria}', 'subCriteriaEdit')->name('edit');
+    Route::delete('/rating/delete/{subCriteria}', 'subCriteriaDelete')->name('delete');
+});
+
 Route::get('/login', function () {
     return view('login');
 });

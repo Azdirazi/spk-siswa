@@ -87,5 +87,17 @@
                 <div data-i18n="Analytics">Sub Kriteria</div>
             </a>
         </li>
+        <li class="menu-item @if (Route::is('rating.view') || Route::is('rating.add') || Route::is('rating.edit')) active @endif">
+            <a href="{{ route('rating.view') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-task"></i>
+                <div data-i18n="Analytics">Penilaian</div>
+            </a>
+        </li>
+        <li class="menu-item ">
+            <a href="{{ route('rating.view') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-calculator"></i>
+                <div data-i18n="Analytics">Perhitungan</div>
+            </a>
+        </li>
     </ul>
 </aside>
