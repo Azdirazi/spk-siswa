@@ -21,10 +21,19 @@
                     </div>
                     <div class="col-lg-12 col-12 mb-2">
                         <label class="form-label">Role <sup class="text-danger">*</sup></label>
-                        <select name="role" class="form-select" id="inputGroupSelect01">
+                        <select class="form-select" id="inputGroupSelect01" name="role"required>
                             <option selected>Choose...</option>
                             <option value="1">Admin</option>
                             <option value="2">Guru</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-12 col-12 mb-2">
+                        <label class="form-label">Kelas <sup class="text-danger"></sup></label>
+                        <select name="grade_id" class="form-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            @foreach ($gradeData as $grade)
+                                <option value="{{ $grade->id }}">{{ $grade->grade }}</option>
+                            @endforeach
                         </select>
                     </div>
 

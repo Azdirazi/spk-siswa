@@ -21,7 +21,12 @@ class User extends Authenticatable
         'name',
         'password',
         'role',
+        'grade_id',
     ];
+    public function grade()
+    {
+        return $this->hasOne(Grade::class, 'id', 'grade_id');
+    }
 
     /**
      * The attributes that should be hidden for serialization.

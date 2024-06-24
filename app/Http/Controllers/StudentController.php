@@ -30,10 +30,11 @@ class StudentController extends Controller
 
         return redirect(route('student.view'))->with('success', 'Data user berhasil ditambahkan');
     }
-    public function viewEdit(Student $student)
+    public function viewEdit(Student $student,Grade $grade, Year $year)
     {
-
-        return view('student.edit-student', compact('student'));
+        $gradeData = $grade->get();
+        $yearData = $year->get();
+        return view('student.edit-student', compact('student','gradeData', 'yearData'));
     }
     public function edit(Student $student, Request $Request)
     {

@@ -8,7 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Rating extends Model
 {
     use HasFactory;
-    protected $fillable = ['sub_criteria_id'];
+    protected $fillable = ['student_id,sub_criteria_id'];
+
+    public function student()
+{
+    return $this->belongsTo(Student::class, 'id','student_id');
+}
 
     public function subCriteria()
     {

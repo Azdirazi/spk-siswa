@@ -17,4 +17,8 @@ class Grade extends Model
     {
         return $this->hasOne(Year::class);
     }
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }

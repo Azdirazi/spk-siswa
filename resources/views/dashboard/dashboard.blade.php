@@ -13,7 +13,7 @@
         <div class="card mb-5">
             <div class="card-header text-primary">
                 <i class="fa fa-table" aria-hidden="true"></i>
-                Tabel Data Siswa
+                Tabel Data User
             </div>
             <div class="card-body table-responsive table-bordered">
                 <table class="table table-sm table-striped table-hover" id="student-table">
@@ -29,8 +29,8 @@
                         @php($i = 1)
                         @foreach ($userData as $user)
                             <tr>
+                                <td class="text-center">{{ $i++ }}</td>
                                 <td class="text-center">{{ $user->name }}</td>
-                                <td class="text-center">{{ $user->password }}</td>
                                 <td class="text-center">
                                     @if ($user->role == 1)
                                         {{ 'Admin' }}
@@ -38,6 +38,7 @@
                                         {{ 'Guru' }}
                                     @endif
                                 </td>
+                                <td class="text-center">{{ $user->grade->grade }}</td>
                                 <td>
                                     <div class="d-flex justify-content-center">
                                         <a href="{{ route('dashboard.viewEdit', $user->id) }}" class="btn btn-warning"><i

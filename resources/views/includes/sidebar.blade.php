@@ -63,16 +63,16 @@
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
-        <li class="menu-item @if (Route::is('student.view') || Route::is('student.viewAdd') || Route::is('student.viewEdit')) active @endif">
-            <a href="{{ route('student.view') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bxs-user-circle"></i>
-                <div data-i18n="Analytics">Siswa</div>
-            </a>
-        </li>
         <li class="menu-item @if (Route::is('group.view') || Route::is('group.viewAddGroup') || Route::is('group.viewEditGroup')) active @endif">
             <a href="{{ route('group.view') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-label"></i>
                 <div data-i18n="Analytics">Kelola Kelas dan Angkatan</div>
+            </a>
+        </li>
+        <li class="menu-item @if (Route::is('student.view') || Route::is('student.viewAdd') || Route::is('student.viewEdit')) active @endif">
+            <a href="{{ route('student.view') }}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-user-circle"></i>
+                <div data-i18n="Analytics">Siswa</div>
             </a>
         </li>
         <li class="menu-item @if (Route::is('criteria.view') || Route::is('criteria.viewAdd') || Route::is('criteria.viewEdit')) active @endif">

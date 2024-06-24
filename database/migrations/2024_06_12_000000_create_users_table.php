@@ -17,6 +17,12 @@ return new class extends Migration
             $table->integer('role');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->foreignId('grade_id')
+                ->references('id')
+                ->on('grades')
+                ->onDelete('cascade')
+                ->onUpdate('cascade')
+                ->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

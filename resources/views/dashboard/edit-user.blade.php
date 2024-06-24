@@ -30,6 +30,15 @@
                             <option value="2"@if ($user->role == 2) selected @endif>Guru</option>
                         </select>
                     </div>
+                    <div class="col-lg-12 col-12 mb-2">
+                        <label class="form-label">Kelas <sup class="text-danger"></sup></label>
+                        <select name="grade_id" class="form-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            @foreach ($gradeData as $grade)
+                                <option value="{{ $grade->id }}"@if($grade->id == $user->grade_id) selected @endif>{{ $grade->grade }} </option>
+                            @endforeach
+                        </select>
+                    </div>
                     <input type="hidden" name="user-submit">
                     <button type="submit" name="user-submit" class="btn btn-primary mt-2 mx-2 w-100">Edit</button>
                     <button type="reset" class="btn btn-danger my-2 mx-2 w-100">Clear</button>

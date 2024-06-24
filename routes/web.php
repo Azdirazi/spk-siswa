@@ -74,8 +74,7 @@ Route::controller(SubCriteriaController::class)->name('subcriteria.')->group(fun
 Route::controller(RatingController::class)->name('rating.')->group(function () {
     Route::get('/rating', 'view')->name('view');
     Route::post('/rating', 'add')->name('add');
-    Route::patch('/rating/edit/{subCriteria}', 'subCriteriaEdit')->name('edit');
-    Route::delete('/rating/delete/{subCriteria}', 'subCriteriaDelete')->name('delete');
+
 });
 
 Route::get('/login', function () {

@@ -15,7 +15,7 @@
                     <div class="col-lg-12 col-12 mb-2">
                         <label class="form-label">NISN <sup class="text-danger">*</sup></label>
                         <input type="text" class="form-control desimal-input" placeholder="ex: 123"
-                            value="{{ $student->nisn }}" name="nisn"required>
+                            value="{{ $student->code }}" name="code"required>
                     </div>
                     <div class="col-lg-12 col-12 mb-2">
                         <label class="form-label">Nama <sup class="text-danger">*</sup></label>
@@ -23,19 +23,11 @@
                             value="{{ $student->name }}"name="name" required>
                     </div>
                     <div class="col-lg-12 col-12 mb-2">
-                        <label class="form-label">Role <sup class="text-danger">*</sup></label>
-                        <select class="form-select" id="inputGroupSelect01" name="role"required>
-                            <option selected>Choose...</option>
-                            <option value="1"@if ($user->role == 1) selected @endif>Admin</option>
-                            <option value="2"@if ($user->role == 2) selected @endif>Guru</option>
-                        </select>
-                    </div>
-                    <div class="col-lg-12 col-12 mb-2">
                         <label class="form-label">Kelas <sup class="text-danger">*</sup></label>
                         <select name="grade_id" class="form-select" id="inputGroupSelect01">
                             <option selected>Choose...</option>
                             @foreach ($gradeData as $grade)
-                                <option value="{{ $grade->id }}">{{ $grade->grade }}</option>
+                                <option value="{{ $grade->id }}"@if($grade->id == $student->grade_id) selected @endif>{{ $grade->grade }} </option>
                             @endforeach
                         </select>
                     </div>
@@ -44,7 +36,7 @@
                         <select name="year_id" class="form-select" id="inputGroupSelect01">
                             <option selected>Choose...</option>
                             @foreach ($yearData as $year)
-                                <option value="{{ $year->id }}">{{ $year->year }} </option>
+                                <option value="{{ $year->id }}"@if($year->id == $student->year_id) selected @endif>{{ $year->year }} </option>
                             @endforeach
                         </select>
                     </div>
