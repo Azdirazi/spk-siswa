@@ -8,13 +8,6 @@
         <button type="button" class="btn btn-primary px-5" data-toggle="modal" data-target="#addRatingModal"> <i class="fa fa-plus" aria-hidden="true"></i> Tambah</button>
     </div>
 
-    @if($status = Session::get('status'))
-        @if($message = Session::get('message'))
-            <div class="alert alert-{{ $status }} alert-dismissible fade show mb-3" role="alert">
-                {{ $message }}
-            </div>
-        @endif
-    @endif
 
     <div class="card mb-5">
         <div class="card-header text-primary">
@@ -32,10 +25,21 @@
                 </thead>
                 <tbody>
                 @php($i = 1)
-                @foreach($studentData as $student)
+                @foreach($candidateData as $candidate)
                     <tr>
                         <td class="text-center">{{ $i++ }}</td>
-                        <td class="text-center">{{ $student->name }}</td>
+                        <td class="text-center">{{ $candidate->student->name}}</td>
+                        <td>
+                            <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#editDataRating{{$candidate->id}}Modal"><i class="bx bxs-message-edit" aria-hidden="true"></i>
+                            </button>
+                            <form action="{{ route('rating.delete', $candidate->id) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn  btn-danger my-2"><i class="bx bxs-trash "
+                                        aria-hidden="true"></i>
+                                </button>
+                            </form>
+                        </td>
 
                     </tr>
                 @endforeach
@@ -49,7 +53,7 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-primary"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Data Calon Baru</h5>
+                    <h5 class="modal-title text-primary"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Data Penilaianan</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
@@ -84,7 +88,48 @@
         </div>
     </div>
 
-    {{-- edit student modal --}}
+{{-- edit candidate modal --}}
+@foreach($candidateData as $candidate)
+<div class="modal fade" id="editDataRating{{ $candidate->id }}Modal" tabindex="-1" role="dialog" aria-labelledby="addRatingModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-primary"><i class="fa fa-plus" aria-hidden="true"></i> Edit Data Calon</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <i class="fa fa-times" aria-hidden="true"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{route('rating.edit', $candidate->id)}}" method="POST">
+                    @csrf
+                    @method('PATCH')
+                    <div class="col-lg-12 col-12 mb-2">
+                        <label class="form-label">Nama <sup class="text-danger">*</sup></label>
+                        <select name="student_id" class="form-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            @foreach ($studentData as $student)
+                                <option value="{{ $student->id }}">{{ $student->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    @foreach($criteriaData as $criteria)
+                    <div class="form-group mb-3">
+                        <label for="sub_criteria_id" class="form-label">{{ $criteria->name }} ({{$criteria->code}})<sup class="text-warning">*</sup></label>
+                        <select name="sub_criteria_id[]" id="sub_criteria_id" class="form-control" required>
+                            <option value="">--- pilih sub kriteria ---</option>
+                            @foreach($criteria->subCriteria as $subCriteria)
+                                <option value="{{ $subCriteria->id }}">{{ $subCriteria->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                @endforeach
+                    <button type="submit" class="btn btn-primary w-100">Edit Data Kriteria</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endforeach
 
 @endsection
 @section('custom-js')

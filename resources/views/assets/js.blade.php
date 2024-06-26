@@ -13,6 +13,7 @@
 <!-- Main JS -->
 <script src="{{ asset('assets/js/main.js') }}"></script>
 
+
 <!-- Page JS -->
 
 <!-- Place this tag in your head or just before your close body tag. -->

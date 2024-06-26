@@ -25,9 +25,13 @@ class Student extends Model
     {
         return $this->hasOne(Year::class, 'id', 'year_id');
     }
-
-    public function rating()
+    public function candidate()
     {
-        return $this->hasMany(Rating::class);
+        return $this->hasone(Candidate::class);
+    }
+   
+    public function subCriteria()
+    {
+        return $this->hasOne(SubCriteria::class, 'id', 'sub_criteria_id');
     }
 }

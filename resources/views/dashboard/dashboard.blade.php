@@ -38,7 +38,13 @@
                                         {{ 'Guru' }}
                                     @endif
                                 </td>
-                                <td class="text-center">{{ $user->grade->grade }}</td>
+                                <td class="text-center">
+                                    @if($user->grade_id == null)
+                                        {{ 'Admin' }}
+                                    @else
+                                        {{ $user->grade->grade }}
+                                    @endif
+                                </td>
                                 <td>
                                     <div class="d-flex justify-content-center">
                                         <a href="{{ route('dashboard.viewEdit', $user->id) }}" class="btn btn-warning"><i

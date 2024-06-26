@@ -21,13 +21,13 @@
                     </div>
                     <div class="col-lg-12 col-12 mb-2">
                         <label class="form-label">Role <sup class="text-danger">*</sup></label>
-                        <select class="form-select" id="inputGroupSelect01" name="role"required>
-                            <option selected>Choose...</option>
-                            <option value="1">Admin</option>
-                            <option value="2">Guru</option>
+                        <select id="role" name="role" class="form-select" id="inlineFormCustomSelectPref"required>
+                             <option selected value="">Pilih...</option>
+                             <option value="1">Admin</option>
+                             <option value="2">Guru</option>
                         </select>
-                    </div>
-                    <div class="col-lg-12 col-12 mb-2">
+                   </div>
+                    <div class="col-lg-12 col-12 mb-2" id="guru">
                         <label class="form-label">Kelas <sup class="text-danger"></sup></label>
                         <select name="grade_id" class="form-select" id="inputGroupSelect01">
                             <option selected>Choose...</option>
@@ -44,4 +44,30 @@
             </form>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function (){
+            //making serverName Dropdown box disabled by default.
+            $('#guru').addClass('d-none');
+
+            $('#role').on("change",function ()
+            {
+
+                if($(this).val() == "1"){
+                    $('#guru').val = "1";
+                    $('#guru').addClass('d-none');
+                    $('[name=grade_id]').attr('required', false);
+
+
+                    $('[name=grade_id]').val('');
+                    return;
+                }if($(this).val() === "2"){
+                    $('#guru').removeClass('d-none');
+                    $('[name=grade_id]').attr('required', true);
+                    return;
+                }
+            });
+
+        });
+    </script>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Grade;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
@@ -39,5 +40,34 @@ class DashboardController extends Controller
     {
         $user->delete();
         return redirect(route('dashboard.view'))->with('success', 'Data user berhasil diubah');
+    }
+
+    public function loginView()
+    {
+        return view('auth.login');
+    }
+
+    public function auth(Request $request)
+    {
+        $credentials = $request->validate([
+            'name' => 'required',
+            'password' => 'required'
+        ]);
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+
+            return redirect()->intended('/');
+        }
+
+
+
+        return redirect()->back();
+    }
+
+    public function logout(Request $request)
+    {
+        $request->session()->invalidate();
+        return redirect()->intended('/login');
     }
 }

@@ -63,36 +63,40 @@
                 <div data-i18n="Analytics">Dashboard</div>
             </a>
         </li>
-        <li class="menu-item @if (Route::is('group.view') || Route::is('group.viewAddGroup') || Route::is('group.viewEditGroup')) active @endif">
-            <a href="{{ route('group.view') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bxs-label"></i>
-                <div data-i18n="Analytics">Kelola Kelas dan Angkatan</div>
-            </a>
-        </li>
-        <li class="menu-item @if (Route::is('student.view') || Route::is('student.viewAdd') || Route::is('student.viewEdit')) active @endif">
-            <a href="{{ route('student.view') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bxs-user-circle"></i>
-                <div data-i18n="Analytics">Siswa</div>
-            </a>
-        </li>
-        <li class="menu-item @if (Route::is('criteria.view') || Route::is('criteria.viewAdd') || Route::is('criteria.viewEdit')) active @endif">
-            <a href="{{ route('criteria.view') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bxs-category-alt"></i>
-                <div data-i18n="Analytics">Kriteria</div>
-            </a>
-        </li>
-        <li class="menu-item @if (Route::is('subcriteria.view') || Route::is('subcriteria.viewAdd') || Route::is('subcriteria.viewEdit')) active @endif">
-            <a href="{{ route('subcriteria.view') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-file"></i>
-                <div data-i18n="Analytics">Sub Kriteria</div>
-            </a>
-        </li>
-        <li class="menu-item @if (Route::is('rating.view') || Route::is('rating.add') || Route::is('rating.edit')) active @endif">
-            <a href="{{ route('rating.view') }}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-task"></i>
-                <div data-i18n="Analytics">Penilaian</div>
-            </a>
-        </li>
+        @if(Auth::user()->role == 1)
+            <li class="menu-item @if (Route::is('group.view') || Route::is('group.viewAddGroup') || Route::is('group.viewEditGroup')) active @endif">
+                <a href="{{ route('group.view') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bxs-label"></i>
+                    <div data-i18n="Analytics">Kelola Kelas dan Angkatan</div>
+                </a>
+            </li>
+            <li class="menu-item @if (Route::is('student.view') || Route::is('student.viewAdd') || Route::is('student.viewEdit')) active @endif">
+                <a href="{{ route('student.view') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bxs-user-circle"></i>
+                    <div data-i18n="Analytics">Siswa</div>
+                </a>
+            </li>
+            <li class="menu-item @if (Route::is('criteria.view') || Route::is('criteria.viewAdd') || Route::is('criteria.viewEdit')) active @endif">
+                <a href="{{ route('criteria.view') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bxs-category-alt"></i>
+                    <div data-i18n="Analytics">Kriteria</div>
+                </a>
+            </li>
+            <li class="menu-item @if (Route::is('subcriteria.view') || Route::is('subcriteria.viewAdd') || Route::is('subcriteria.viewEdit')) active @endif">
+                <a href="{{ route('subcriteria.view') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-file"></i>
+                    <div data-i18n="Analytics">Sub Kriteria</div>
+                </a>
+            </li>
+        @else
+            <li class="menu-item @if (Route::is('rating.view') || Route::is('rating.add') || Route::is('rating.edit')) active @endif">
+                <a href="{{ route('rating.view') }}" class="menu-link">
+                    <i class="menu-icon tf-icons bx bx-task"></i>
+                    <div data-i18n="Analytics">Penilaian</div>
+                </a>
+            </li>
+        @endif
+
         <li class="menu-item ">
             <a href="{{ route('rating.view') }}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-calculator"></i>

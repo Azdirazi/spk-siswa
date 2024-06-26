@@ -20,7 +20,7 @@ class SubCriteriaController extends Controller
         return redirect()->route('subcriteria.view');
     }
 
-    public function edit(SubCriteria $subCriteria, Request $request)
+    public function  subCriteriaedit(SubCriteria $subCriteria, Request $request)
     {
         $subCriteria->update($request->all());
         return redirect()->route('subcriteria.view');
